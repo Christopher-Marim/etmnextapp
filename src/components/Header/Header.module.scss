@@ -1,0 +1,43 @@
+#layout1Container {
+  height: 75px;
+  width: 100vw;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  transition: 0.3s;
+
+  img {
+    max-width: 220px;
+    max-height: 75px;
+    padding: 10px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    button {
+      background-color: transparent;
+      font: 400 16px "Roboto", sans-serif;
+      color: white;
+      padding: 10px 10px;
+      margin: 20px;
+      border: solid 0;
+      transition: all ease-in-out 280ms;
+      cursor: pointer;
+      border-bottom-color: rgb(0, 98, 255);
+      &:hover {
+        border-bottom-width: 4px;
+      }
+
+      
+    }
+  }
+}

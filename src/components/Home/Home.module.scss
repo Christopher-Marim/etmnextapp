@@ -1,0 +1,17 @@
+#layout1ContainerHome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 100vh;
+  background-color: black;
+  width: 100vw;
+  z-index: -1;
+
+  img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0.5;
+  }
+}
