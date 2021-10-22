@@ -1,0 +1,39 @@
+#layout1ContainerServices {
+    width: 60%;
+    margin: 40px;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: 0.3s;
+  
+    h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0;
+      line-height: 1px;
+      margin: 0 0 5px 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #5c8eb0;
+      font-family: "Roboto", sans-serif;
+  
+      &:after {
+        content: "";
+        width: 120px;
+        height: 1px;
+        display: inline-block;
+        background: blue;
+        margin: 4px 10px;
+      }
+    }
+  
+    #wrapper {
+      width: 100%;
+      margin-top: 1.25rem;
+  
+      
+      
+    }
+  }
+  

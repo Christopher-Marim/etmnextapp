@@ -2,6 +2,7 @@ import { Home } from "../components/Home/home";
 import { Container } from "../styles/pages/Home";
 import { Header } from "../components/Header/header";
 import { About, ResponseAbout } from "../components/About/about";
+import { Services } from "../components/Services/services";
 
 export interface Option {
   id: number;
@@ -37,19 +38,19 @@ export default function Principal() {
     {
       id: "1",
       title: "Missão",
-      message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus nisi quidem nobis adipisci debitis dolorum porro, quibusdam quam libero amet quod, in cumque tempore iste cupiditate. Voluptatum dignissimos corporis veniam?`,
+      message: `Treinar Profissionais e executar atividades com excelência e segurança.`,
     },
     {
       id: "2",
       title: "Visão",
       message:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus nisi quidem nobis adipisci debitis dolorum porro, quibusdam quam libero amet quod, in cumque tempore iste cupiditate. Voluptatum dignissimos corporis veniam?",
+        "Treinar Profissionais e executar atividades com excelência e segurança.",
     },
     {
       id: "3",
       title: "Valores",
       message:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus nisi quidem nobis adipisci debitis dolorum porro, quibusdam quam libero amet quod, in cumque tempore iste cupiditate. Voluptatum dignissimos corporis veniam?",
+        "Treinar Profissionais e executar atividades com excelência e segurança.",
     },
   ];
 
@@ -62,6 +63,7 @@ export default function Principal() {
         imgText={"http://etm.ltda/media/images/1627060002.png"}
         arrayResponse={arrayResponseAbout}
       ></About>
+      <Services/>
     </Container>
   );
 }
