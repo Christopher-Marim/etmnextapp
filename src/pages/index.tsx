@@ -20,7 +20,7 @@ export default function Principal() {
   return (
     <Container>
       <Header options={optionsHeader} />
-      <Home nameCompany={"RED FLAG"} />
+      <Home nameCompany={"RED FLAG"} slogan={"Soluções para seus problemas "} />
       <About></About>
     </Container>
   );

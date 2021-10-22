@@ -14,9 +14,20 @@
     object-fit: cover;
     opacity: 0.5;
   }
+  div{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+  }
   h1 {
     color: white;
-    font-size: 3.5rem;
-    position: absolute;
+    font:400 3.5rem 'Roboto', sans-serif;
+  }
+  h3 {
+    color: white;
+    font:100 1.5rem 'Raleway', sans-serif;
+    margin-top: 10px;
   }
  }
