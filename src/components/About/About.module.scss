@@ -1,10 +1,73 @@
 #layout1ContainerAbout {
-  width: 100%;
-  background-color: white;
+  width: 60%;
   margin: 40px;
   display: flex;
-  justify-content: flex-start;
   padding: 10px;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   transition: 0.3s;
+
+  h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0;
+    line-height: 1px;
+    margin: 0 0 5px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #5c8eb0;
+    font-family: "Roboto", sans-serif;
+
+    &:after {
+      content: "";
+      width: 120px;
+      height: 1px;
+      display: inline-block;
+      background: blue;
+      margin: 4px 10px;
+    }
+  }
+
+  #wrapper {
+    width: 100%;
+    margin-top: 1.25rem;
+
+    p {
+      color: #444444;
+      text-indent: 50px;
+      text-align: justify;
+      font-size: 1.2rem;
+    }
+    img {
+      width: 400px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    table {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      tr {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+
+        p {
+          margin: 10px;
+          text-indent: 0px;
+          text-align: center;
+        }
+
+        h3 {
+          margin: 10px;
+          font-size: 1.5rem;
+          color: #169179;
+        }
+      }
+    }
+  }
 }
