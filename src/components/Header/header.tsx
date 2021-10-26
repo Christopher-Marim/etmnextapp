@@ -12,7 +12,7 @@ export interface Option {
 
 export function Header({ options }: HeaderProps) {
   const [style, setStyle] = useState({
-    background: "rgba(0, 0, 0, 0.0)"
+    background: "rgba(0, 0, 0, 0.0)",
   });
 
   if (typeof window !== "undefined") {
@@ -29,21 +29,16 @@ export function Header({ options }: HeaderProps) {
   }
 
   return (
-    <div 
-    id={styles.layout1Container} 
-    style={{ ...style }}
-    >
+    <div id={styles.layout1Container} style={{ ...style }}>
       <img
-       src="https://www.redflag.com.br/images/logo-wide@2x.png"
-       alt="logo" 
-       />
+        src="https://www.redflag.com.br/images/logo-wide@2x.png"
+        alt="logo"
+      />
       <div className={styles.wrapper}>
         {options.map((option) => (
-          <button 
-           key={option.id}
-           >
+          <a href={`#${option.name}`} key={option.id}>
             {option.name.toUpperCase()}
-          </button>
+          </a>
         ))}
       </div>
     </div>

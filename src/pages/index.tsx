@@ -1,8 +1,9 @@
+import { useRef } from "react";
 import { Home } from "../components/Home/home";
 import { Container } from "../styles/pages/Home";
 import { Header } from "../components/Header/header";
 import { About, ResponseAbout } from "../components/About/about";
-import { ListServices } from './../components/ListServices/listservices';
+import { ListServices } from "./../components/ListServices/listservices";
 
 export interface Option {
   id: number;
@@ -17,6 +18,9 @@ export default function Principal() {
     { id: 5, name: "Contatos" },
     { id: 4, name: "PT-BR" },
   ];
+
+  const homeRef = useRef(null) as React.RefObject<HTMLDivElement>;
+  const servicesRef = useRef(null);
 
   const textAbout = `Desde 1994 no mercado offshore a HIGHBRAS se destaca na prestação de
   serviços de manutenção/inspeção de equipamentos em atendimento a
@@ -59,12 +63,12 @@ export default function Principal() {
       <Header options={optionsHeader} />
       <Home nameCompany={"RED FLAG"} slogan={"Soluções para seus problemas "} />
       <About
+        nameComponent={"Sobre"}
         aboutText={textAbout}
         imgText={"http://etm.ltda/media/images/1627060002.png"}
         arrayResponse={arrayResponseAbout}
       ></About>
-      <ListServices/>
-     
+      <ListServices nameComponent={"Serviços"} />
     </Container>
   );
 }

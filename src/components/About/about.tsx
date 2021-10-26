@@ -1,4 +1,5 @@
 import styles from "./About.module.scss";
+import { useRef } from "react";
 
 export interface ResponseAbout {
   id: string;
@@ -9,14 +10,20 @@ interface Props {
   aboutText?: string;
   imgText?: string;
   arrayResponse?: ResponseAbout[];
+  nameComponent: string;
 }
 
-export function About({ aboutText, imgText, arrayResponse }: Props) {
+export function About({
+  aboutText,
+  imgText,
+  arrayResponse,
+  nameComponent,
+}: Props) {
   return (
     <>
       {(aboutText || arrayResponse) && (
-        <div id={styles.layout1ContainerAbout}>
-          <h2>Sobre</h2>
+        <div className={styles.layout1ContainerAbout} id={`${nameComponent}`}>
+          <h2>{nameComponent}</h2>
           <div id={styles.wrapper}>
             {imgText && <img src={imgText} alt="logoEmpresa" />}
             <p>{aboutText}</p>

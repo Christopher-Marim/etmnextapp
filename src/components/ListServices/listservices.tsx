@@ -10,7 +10,10 @@ interface Service {
   title: string;
 }
 
-export function ListServices() {
+interface Props{
+  nameComponent:string;
+}
+export function ListServices({nameComponent}:Props) {
   const [showModal, setShowModal] = useState(false);
   const [currentService, setCurrentService] = useState<Service>();
 
@@ -41,8 +44,8 @@ export function ListServices() {
   ];
 
   return (
-    <div id={styles.layout1ContainerListServices}>
-      <h2>Serviços</h2>
+    <div className={styles.layout1ContainerListServices} >
+      <h2 id={`${nameComponent}`}>{nameComponent}</h2>
       <h1>CONFIRA NOSSOS SERVIÇOS</h1>
       <ul>
         {array.map((x) => (

@@ -7,7 +7,7 @@ interface Props {
 
 export function Home({ nameCompany, slogan = "" }: Props) {
   return (
-    <div id={styles.layout1ContainerHome}>
+    <div className={styles.layout1ContainerHome} id={"Home"}>
       <div>
         <h1>{nameCompany.toUpperCase()}</h1>
         <h3>{slogan}</h3>

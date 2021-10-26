@@ -23,7 +23,7 @@
     align-items: center;
     padding: 10px;
 
-    button {
+    a {
       background-color: transparent;
       font: 400 16px "Roboto", sans-serif;
       color: white;
@@ -33,6 +33,7 @@
       transition: all ease-in-out 280ms;
       cursor: pointer;
       border-bottom-color: rgb(0, 98, 255);
+      text-decoration: none;
       &:hover {
         border-bottom-width: 4px;
       }      
