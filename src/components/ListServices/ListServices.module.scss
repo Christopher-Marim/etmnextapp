@@ -1,4 +1,4 @@
-#layout1ContainerServices {
+#layout1ContainerListServices {
     width: 60%;
     margin: 40px;
     display: flex;
@@ -6,6 +6,14 @@
     flex-direction: column;
     align-items: flex-start;
     transition: 0.3s;
+
+    h1{
+      text-transform: uppercase;
+      font-size: 36px;
+      font-weight: 700;
+      font-family: "Poppins", sans-serif;
+      color: #263d4d;
+    }
   
     h2 {
       font-size: 1rem;
@@ -27,13 +35,15 @@
         margin: 4px 10px;
       }
     }
-  
-    #wrapper {
-      width: 100%;
-      margin-top: 1.25rem;
-  
+
+    ul{
+      margin: -20px;
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       
-      
-    }
+     }
   }
   

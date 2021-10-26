@@ -2,7 +2,7 @@ import { Home } from "../components/Home/home";
 import { Container } from "../styles/pages/Home";
 import { Header } from "../components/Header/header";
 import { About, ResponseAbout } from "../components/About/about";
-import { Services } from "../components/Services/services";
+import { ListServices } from './../components/ListServices/listservices';
 
 export interface Option {
   id: number;
@@ -63,7 +63,8 @@ export default function Principal() {
         imgText={"http://etm.ltda/media/images/1627060002.png"}
         arrayResponse={arrayResponseAbout}
       ></About>
-      <Services/>
+      <ListServices/>
+     
     </Container>
   );
 }

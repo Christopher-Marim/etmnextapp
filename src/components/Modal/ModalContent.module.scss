@@ -1,0 +1,15 @@
+#body {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  img {
+    object-fit: contain;
+    border-radius:10px;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 10px;
+    text-align: justify;
+  }
+}
