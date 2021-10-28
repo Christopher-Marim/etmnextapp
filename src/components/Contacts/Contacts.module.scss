@@ -1,0 +1,126 @@
+.layout1ContainerContacts {
+  width: 60%;
+  margin: 40px;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: 0.3s;
+
+  h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0;
+    line-height: 1px;
+    margin: 0 0 5px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #5c8eb0;
+    font-family: "Poppins", sans-serif;
+
+    &:after {
+      content: "";
+      width: 120px;
+      height: 1px;
+      display: inline-block;
+      background: blue;
+      margin: 4px 10px;
+    }
+  }
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    color: #263d4d;
+  }
+
+  #wrapper {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+
+    @media (max-width: 1400px) {
+      flex-direction: column;
+    }
+    
+    #sectionContatos {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 40px;
+        color: #169179;
+        p {
+          text-align: center;
+          font-size: 1.25rem;
+          color: #777777;
+          font-weight: 700;
+        }
+        a {
+          cursor: pointer;
+          color: #444444;
+          text-decoration: none;
+          &:hover {
+            color: #169179;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    #section {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      margin: 30px;
+
+      input {
+        border: 1px solid #ced4da;
+      }
+
+      #inputMedio {
+        padding: 10px;
+        margin: 10px;
+        width: 100%;
+      }
+      #inputLarge {
+        justify-content: flex-start;
+        padding: 10px;
+        margin: 10px;
+        height: 100%;
+        width: 100%;
+        border: 1px solid #ced4da;
+      }
+
+      div {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        #inputSmall {
+          padding: 10px;
+          width: 100%;
+        }
+      }
+      button{
+        padding: 10px 30px;
+        border:none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1rem;
+        background-color: #169179;
+      }
+    }
+  }
+}

@@ -2,8 +2,9 @@ import { useRef } from "react";
 import { Home } from "../components/Home/home";
 import { Container } from "../styles/pages/Home";
 import { Header } from "../components/Header/header";
-import { About, ResponseAbout } from "../components/About/about";
+import { About } from "../components/About/about";
 import { ListServices } from "./../components/ListServices/listservices";
+import { Contacts } from "../components/Contacts/contacts";
 
 export interface Option {
   id: number;
@@ -18,7 +19,7 @@ export default function Principal() {
     { id: 5, name: "Contatos" },
     { id: 4, name: "PT-BR" },
   ];
-  
+
   const textAbout = `Desde 1994 no mercado offshore a HIGHBRAS se destaca na prestação de
   serviços de manutenção/inspeção de equipamentos em atendimento a
   embarcações e plataformas. Ministra treinamentos em Movimentação de
@@ -35,25 +36,6 @@ export default function Principal() {
   em auditórios com material áudio/visual.HIGHBRAS, qualificando
   profissionais para os desafios do Brasil.`;
 
-  const arrayResponseAbout: ResponseAbout[] = [
-    {
-      id: "1",
-      title: "Missão",
-      message: `Treinar Profissionais e executar atividades com excelência e segurança.`,
-    },
-    {
-      id: "2",
-      title: "Visão",
-      message:
-        "Treinar Profissionais e executar atividades com excelência e segurança.",
-    },
-    {
-      id: "3",
-      title: "Valores",
-      message:
-        "Treinar Profissionais e executar atividades com excelência e segurança.",
-    },
-  ];
 
   const aboutRender = `<p><audio class="audio-for-speech"></audio></p>
   <div class="translate-tooltip-mtz hidden_translate" style="left: 0px; top: 767px;">
@@ -166,11 +148,10 @@ export default function Principal() {
       <Home nameCompany={"RED FLAG"} slogan={"Soluções para seus problemas "} />
       <About
         nameComponent={"Sobre"}
-        aboutText={textAbout}
         aboutRender={aboutRender}
-        arrayResponse={arrayResponseAbout}
       ></About>
       <ListServices nameComponent={"Serviços"} />
+      <Contacts nameComponent={"Contato"}></Contacts>
     </Container>
   );
 }
