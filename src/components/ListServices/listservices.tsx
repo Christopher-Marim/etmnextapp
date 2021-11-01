@@ -10,10 +10,10 @@ interface Service {
   title: string;
 }
 
-interface Props{
+interface Props extends React.HTMLAttributes<HTMLDivElement>{
   nameComponent:string;
 }
-export function ListServices({nameComponent}:Props) {
+export function ListServices({nameComponent, ...rest}:Props) {
   const [showModal, setShowModal] = useState(false);
   const [currentService, setCurrentService] = useState<Service>();
 
@@ -44,7 +44,7 @@ export function ListServices({nameComponent}:Props) {
   ];
 
   return (
-    <div className={styles.layout1ContainerListServices} >
+    <div {...rest} className={styles.layout1ContainerListServices} >
       <h2 id={`${nameComponent}`}>{nameComponent}</h2>
       <h1>CONFIRA NOSSOS SERVIÇOS</h1>
       <ul>

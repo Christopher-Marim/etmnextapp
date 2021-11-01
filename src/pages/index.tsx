@@ -1,10 +1,14 @@
-import { useRef } from "react";
+import { useEffect } from "react";
 import { Home } from "../components/Home/home";
 import { Container } from "../styles/pages/Home";
 import { Header } from "../components/Header/header";
 import { About } from "../components/About/about";
 import { ListServices } from "./../components/ListServices/listservices";
 import { Contacts } from "../components/Contacts/contacts";
+import { Footer } from "../components/Footer/footer";
+import Aos from "aos";
+
+import "aos/dist/aos.css";
 
 export interface Option {
   id: number;
@@ -12,6 +16,10 @@ export interface Option {
 }
 
 export default function Principal() {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   const optionsHeader: Option[] = [
     { id: 1, name: "Home" },
     { id: 2, name: "Sobre" },
@@ -35,7 +43,6 @@ export default function Principal() {
   treinamentos são ministrados In Company com aulas práticas e teóricas ou
   em auditórios com material áudio/visual.HIGHBRAS, qualificando
   profissionais para os desafios do Brasil.`;
-
 
   const aboutRender = `<p><audio class="audio-for-speech"></audio></p>
   <div class="translate-tooltip-mtz hidden_translate" style="left: 0px; top: 767px;">
@@ -141,17 +148,21 @@ export default function Principal() {
   </tbody>
   </table>`;
 
-//por validação por options do Header, exemplo: Se não retornar Sobre/About no Header Não renderizar o component About
+  //por validação por options do Header, exemplo: Se não retornar Sobre/About no Header Não renderizar o component About
   return (
     <Container>
       <Header options={optionsHeader} />
       <Home nameCompany={"RED FLAG"} slogan={"Soluções para seus problemas "} />
+
       <About
+        data-aos="fade-up"
         nameComponent={"Sobre"}
         aboutRender={aboutRender}
       ></About>
-      <ListServices nameComponent={"Serviços"} />
-      <Contacts nameComponent={"Contato"}></Contacts>
+
+      <ListServices data-aos="fade-up" nameComponent={"Serviços"} />
+      <Contacts data-aos="fade-up" nameComponent={"Contato"}></Contacts>
+      <Footer></Footer>
     </Container>
   );
 }
