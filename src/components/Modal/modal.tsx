@@ -1,9 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import styles from "./ModalContent.module.scss";
-
-import ReactDOM from "react-dom";
-
 interface Props {
   onClose(): void;
   show: boolean;
@@ -26,7 +23,7 @@ export function ModalComponent({
       <Modal.Body>
         <div id={styles.body}>
           <img src={image} />
-          <p> {message}</p>
+          <p dangerouslySetInnerHTML={{ __html: message }}></p>
         </div>
       </Modal.Body>
       <Modal.Footer>

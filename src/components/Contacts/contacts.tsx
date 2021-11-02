@@ -5,11 +5,18 @@ import { BiPhoneCall } from "react-icons/bi";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   nameComponent: string;
+  endereco: string;
+  number: string;
+  email: string;
 }
 
-export function Contacts({ nameComponent, ...rest }: Props) {
-  const endereco = `Rua quintino bacaiuva 227 88502190`;
-
+export function Contacts({
+  nameComponent,
+  endereco,
+  email,
+  number,
+  ...rest
+}: Props) {
   const x = endereco.replace(/\s/g, "+");
 
   return (
@@ -37,12 +44,12 @@ export function Contacts({ nameComponent, ...rest }: Props) {
               <div>
                 <AiOutlineMail size={30} />
                 <p>Email</p>
-                <a>contato@etm.ltda</a>
+                <a>{email}</a>
               </div>
               <div>
                 <BiPhoneCall size={30} />
                 <p>Telefone</p>
-                <a>22-2142-5200</a>
+                <a>{number}</a>
               </div>
             </div>
             <div id={styles.section}>

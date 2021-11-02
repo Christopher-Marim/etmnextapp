@@ -12,43 +12,17 @@ interface Service {
 
 interface Props extends React.HTMLAttributes<HTMLDivElement>{
   nameComponent:string;
+  services:Service[];
 }
-export function ListServices({nameComponent, ...rest}:Props) {
+export function ListServices({nameComponent, services, ...rest}:Props) {
   const [showModal, setShowModal] = useState(false);
   const [currentService, setCurrentService] = useState<Service>();
-
-  const array = [
-    {
-      id: "1",
-      image:
-        "https://labprototipando.com.br/wp-content/uploads/2020/05/mulmimetro_teste_tutorial_bateria.jpg",
-      message:
-        "esde 1994 no mercado offshore a HIGHBRAS se destaca na prestação de serviços de manutenção/inspeção de equipamentos em atendimento a embarcações e plataformas. ",
-      title:
-        "Serviço de manutenção de tratores intereistelares sem função de retorno",
-    },
-    {
-      id: "2",
-      image:
-        "https://i.pinimg.com/originals/b3/45/e4/b345e46becdaeaaa9dcf6ea6144c91a9.jpg",
-      message: "lorem ipsum dolor sit amet, consectetur adip",
-      title: "Serviço 2",
-    },
-    {
-      id: "3",
-      image:
-        "https://labprototipando.com.br/wp-content/uploads/2020/05/mulmimetro_teste_tutorial_bateria.jpg",
-      message: "lorem ipsum dolor sit amet, consectetur adip",
-      title: "Serviço 2",
-    },
-  ];
-
   return (
     <div {...rest} className={styles.layout1ContainerListServices} >
       <h2 id={`${nameComponent}`}>{nameComponent}</h2>
       <h1>CONFIRA NOSSOS SERVIÇOS</h1>
       <ul>
-        {array.map((x) => (
+        {services.map((x) => (
           <li key={x.id}>
             <ServiceComponent
               title={x.title}

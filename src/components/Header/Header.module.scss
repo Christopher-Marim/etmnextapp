@@ -39,5 +39,22 @@
         border-bottom-width: 4px;
       }      
     }
+    select{
+      background-color: transparent;
+      font: 400 16px "Poppins", sans-serif;
+      color: white;
+      padding: 10px 10px;
+      margin: 20px;
+      border: solid 0;
+      transition: all ease-in-out 280ms;
+      cursor: pointer;
+      border-bottom-color: rgb(0, 98, 255);
+      text-decoration: none;
+
+      option{
+        color: black;
+        cursor: pointer;
+      }
+    }
   }
 }

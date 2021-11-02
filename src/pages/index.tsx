@@ -9,40 +9,46 @@ import { Footer } from "../components/Footer/footer";
 import Aos from "aos";
 
 import "aos/dist/aos.css";
+import { i18n } from "../translate/i18n";
 
 export interface Option {
   id: number;
   name: string;
 }
+interface Service {
+  id: string;
+  image: string;
+  message: string;
+  title: string;
+}
+
+export interface resultApi {
+  nameCompany: string;
+  slogan: string;
+  logo: string;
+  aboutRender: string;
+  services: Service[];
+  endereco: string;
+  email: string;
+  numero: string;
+  api: string;
+}
 
 export default function Principal() {
   useEffect(() => {
-    Aos.init({ duration: 2000 });
+    Aos.init({
+      offset: 200,
+      duration: 600,
+      easing: "ease-in-sine",
+    });
   }, []);
 
   const optionsHeader: Option[] = [
-    { id: 1, name: "Home" },
-    { id: 2, name: "Sobre" },
-    { id: 3, name: "Serviços" },
-    { id: 5, name: "Contatos" },
-    { id: 4, name: "PT-BR" },
+    { id: 1, name: i18n.t("titles.home") },
+    { id: 2, name: i18n.t("titles.about") },
+    { id: 3, name: i18n.t("titles.services") },
+    { id: 4, name: i18n.t("titles.contacts") },
   ];
-
-  const textAbout = `Desde 1994 no mercado offshore a HIGHBRAS se destaca na prestação de
-  serviços de manutenção/inspeção de equipamentos em atendimento a
-  embarcações e plataformas. Ministra treinamentos em Movimentação de
-  Cargas, Operação de Guindastes Onshore e Offshore, Operador de Ponte
-  Rolante, Operador de Empilhadeira, Inspeção e Manutenção em Guindastes,
-  Manutenção em Turcos de Baleeira e Inspeção Eletromagnética em Cabos de
-  Aço.A HIGHBRAS disponibiliza Consultoria Técnica/Normativa para
-  Equipamentos e Acessórios de Içamento de Cargas.A fim de atender os
-  novos desafios do mercado Petrolífero Brasileiro, a partir de 2012, a
-  HIGHBRAS implementou Sistema de Ensino Próprio baseado nas necessidades
-  e deficiências da Mão de Obra local, a fim de qualificar e otimizar a
-  performance de Operadores e Técnicos da Indústria em geral.Os
-  treinamentos são ministrados In Company com aulas práticas e teóricas ou
-  em auditórios com material áudio/visual.HIGHBRAS, qualificando
-  profissionais para os desafios do Brasil.`;
 
   const aboutRender = `<p><audio class="audio-for-speech"></audio></p>
   <div class="translate-tooltip-mtz hidden_translate" style="left: 0px; top: 767px;">
@@ -148,20 +154,101 @@ export default function Principal() {
   </tbody>
   </table>`;
 
-  //por validação por options do Header, exemplo: Se não retornar Sobre/About no Header Não renderizar o component About
+  const result: resultApi = {
+    nameCompany: "Red Flag",
+    slogan: "Solução para seus problemas",
+    logo: "https://www.redflag.com.br/images/logo-wide@2x.png",
+    aboutRender: aboutRender,
+    services: [
+      {
+        id: "1",
+        image:
+          "https://labprototipando.com.br/wp-content/uploads/2020/05/mulmimetro_teste_tutorial_bateria.jpg",
+        message:
+          "esde 1994 no mercado offshore a HIGHBRAS se destaca na prestação de serviços de manutenção/inspeção de equipamentos em atendimento a embarcações e plataformas. ",
+        title:
+          "Serviço de manutenção de tratores intereistelares sem função de retorno",
+      },
+      {
+        id: "2",
+        image:
+          "https://i.pinimg.com/originals/b3/45/e4/b345e46becdaeaaa9dcf6ea6144c91a9.jpg",
+        message: "lorem ipsum dolor sit amet, consectetur adip",
+        title: "Serviço 2",
+      },
+      {
+        id: "3",
+        image:
+          "https://labprototipando.com.br/wp-content/uploads/2020/05/mulmimetro_teste_tutorial_bateria.jpg",
+        message: `<p><span style="font-family: verdana, geneva, sans-serif;">A Highbras possui equipamentos para realizar Inspe&ccedil;&atilde;o eletromagn&eacute;tica em cabos de a&ccedil;o ferromagn&eacute;ticos em diversos tipos de equipamentos, tais como: guindastes, pontes rolantes, guinchos, elevadores de carga, telef&eacute;ricos. Atendendo os requisitos das normas: ABNT NBR ISO 4309, ABNT NBR 16073, ASTM E 1571, API RP 2I.</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">&nbsp;</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">A inspe&ccedil;&atilde;o eletromagn&eacute;tica possibilita definir a integridade interna e externa dos cabos de a&ccedil;o inspecionados, gerando confian&ccedil;a e seguran&ccedil;a em sua utiliza&ccedil;&atilde;o.</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">&nbsp;</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">A partir desta inspe&ccedil;&atilde;o &eacute; poss&iacute;vel manter um hist&oacute;rico de acompanhamento de descontinuidades encontradas, possibilitando garantir a rastreabilidade nas pr&oacute;ximas inspe&ccedil;&otilde;es.</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">&nbsp;</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">Essa condi&ccedil;&atilde;o elimina substitui&ccedil;&otilde;es prematuras, reduzindo custos e garantindo a seguran&ccedil;a.</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">&nbsp;</span></p>
+        <p>&nbsp;</p>`,
+        title: "Serviço 2",
+      },
+      {
+        id: "4",
+        image:
+          "https://labprototipando.com.br/wp-content/uploads/2020/05/mulmimetro_teste_tutorial_bateria.jpg",
+        message: `<p><span style="font-family: verdana, geneva, sans-serif;">A Highbras possui equipamentos para realizar Inspe&ccedil;&atilde;o eletromagn&eacute;tica em cabos de a&ccedil;o ferromagn&eacute;ticos em diversos tipos de equipamentos, tais como: guindastes, pontes rolantes, guinchos, elevadores de carga, telef&eacute;ricos. Atendendo os requisitos das normas: ABNT NBR ISO 4309, ABNT NBR 16073, ASTM E 1571, API RP 2I.</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">&nbsp;</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">A inspe&ccedil;&atilde;o eletromagn&eacute;tica possibilita definir a integridade interna e externa dos cabos de a&ccedil;o inspecionados, gerando confian&ccedil;a e seguran&ccedil;a em sua utiliza&ccedil;&atilde;o.</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">&nbsp;</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">A partir desta inspe&ccedil;&atilde;o &eacute; poss&iacute;vel manter um hist&oacute;rico de acompanhamento de descontinuidades encontradas, possibilitando garantir a rastreabilidade nas pr&oacute;ximas inspe&ccedil;&otilde;es.</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">&nbsp;</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">Essa condi&ccedil;&atilde;o elimina substitui&ccedil;&otilde;es prematuras, reduzindo custos e garantindo a seguran&ccedil;a.</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">&nbsp;</span></p>
+        <p>&nbsp;</p>`,
+        title: "Serviço 2",
+      },
+      {
+        id: "5",
+        image:
+          "https://labprototipando.com.br/wp-content/uploads/2020/05/mulmimetro_teste_tutorial_bateria.jpg",
+        message: `<p><span style="font-family: verdana, geneva, sans-serif;">A Highbras possui equipamentos para realizar Inspe&ccedil;&atilde;o eletromagn&eacute;tica em cabos de a&ccedil;o ferromagn&eacute;ticos em diversos tipos de equipamentos, tais como: guindastes, pontes rolantes, guinchos, elevadores de carga, telef&eacute;ricos. Atendendo os requisitos das normas: ABNT NBR ISO 4309, ABNT NBR 16073, ASTM E 1571, API RP 2I.</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">&nbsp;</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">A inspe&ccedil;&atilde;o eletromagn&eacute;tica possibilita definir a integridade interna e externa dos cabos de a&ccedil;o inspecionados, gerando confian&ccedil;a e seguran&ccedil;a em sua utiliza&ccedil;&atilde;o.</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">&nbsp;</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">A partir desta inspe&ccedil;&atilde;o &eacute; poss&iacute;vel manter um hist&oacute;rico de acompanhamento de descontinuidades encontradas, possibilitando garantir a rastreabilidade nas pr&oacute;ximas inspe&ccedil;&otilde;es.</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">&nbsp;</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">Essa condi&ccedil;&atilde;o elimina substitui&ccedil;&otilde;es prematuras, reduzindo custos e garantindo a seguran&ccedil;a.</span></p>
+        <p><span style="font-family: verdana, geneva, sans-serif;">&nbsp;</span></p>
+        <p>&nbsp;</p>`,
+        title: "Serviço 2",
+      },
+    ],
+    endereco: "Rua Quintino Bocaiuva 88502190",
+    email: "contanto@etm.srv.br",
+    numero: "22 998474022",
+    api: "",
+  };
+
   return (
     <Container>
-      <Header options={optionsHeader} />
-      <Home nameCompany={"RED FLAG"} slogan={"Soluções para seus problemas "} />
-
+      <Header logo={result.logo} options={optionsHeader} />
+      <Home nameCompany={result.nameCompany} slogan={result.slogan} />
       <About
         data-aos="fade-up"
-        nameComponent={"Sobre"}
-        aboutRender={aboutRender}
+        nameComponent={i18n.t("titles.about")}
+        aboutRender={result.aboutRender}
       ></About>
-
-      <ListServices data-aos="fade-up" nameComponent={"Serviços"} />
-      <Contacts data-aos="fade-up" nameComponent={"Contato"}></Contacts>
+      <ListServices
+        data-aos="fade-up"
+        services={result.services}
+        nameComponent={ i18n.t("titles.services")}
+      />
+      <Contacts
+        data-aos="fade-up"
+        number={result.numero}
+        email={result.email}
+        endereco={result.endereco}
+        nameComponent={i18n.t("titles.contacts")}
+      ></Contacts>
       <Footer></Footer>
     </Container>
   );
