@@ -7,6 +7,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   nameComponent: string;
   endereco: string;
   number: string;
+  subText:string;
   email: string;
 }
 
@@ -15,6 +16,7 @@ export function Contacts({
   endereco,
   email,
   number,
+  subText,
   ...rest
 }: Props) {
   const x = endereco.replace(/\s/g, "+");
@@ -28,7 +30,7 @@ export function Contacts({
           id={`${nameComponent}`}
         >
           <h2>{nameComponent}</h2>
-          <h1>Fale conosco</h1>
+          <h1>{subText}</h1>
           <div id={styles.wrapper}>
             <div id={styles.sectionContatos}>
               <div style={{ width: "100%" }}>

@@ -13,14 +13,15 @@ interface Service {
 interface Props extends React.HTMLAttributes<HTMLDivElement>{
   nameComponent:string;
   services:Service[];
+  subText:string;
 }
-export function ListServices({nameComponent, services, ...rest}:Props) {
+export function ListServices({nameComponent, services,subText, ...rest}:Props) {
   const [showModal, setShowModal] = useState(false);
   const [currentService, setCurrentService] = useState<Service>();
   return (
     <div {...rest} className={styles.layout1ContainerListServices} >
       <h2 id={`${nameComponent}`}>{nameComponent}</h2>
-      <h1>CONFIRA NOSSOS SERVIÇOS</h1>
+      <h1>{subText}</h1>
       <ul>
         {services.map((x) => (
           <li key={x.id}>

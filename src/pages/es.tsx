@@ -338,11 +338,11 @@ export const getStaticProps = async () => {
     `/language?method=byCompanyId&companyId=${responseCompanyInfos.data.data[0].id}`
   );
   const responseTextPage= await api.get(
-    `/page?method=byCompanyLanguageId&companyId=${responseCompanyInfos.data.data[0].id}&languageId=${1}`
+    `/page?method=byCompanyLanguageId&companyId=${responseCompanyInfos.data.data[0].id}&languageId=${3}`
   );
   
   const responseImages= await api.get(
-    `/imageSettings?method=byCompanyLanguageId&companyId=${responseCompanyInfos.data.data[0].id}&languageId=${1}`
+    `/imageSettings?method=byCompanyLanguageId&companyId=${responseCompanyInfos.data.data[0].id}&languageId=${3}`
   );
 
   console.log(responseCompanyInfos.data.data[0]);
@@ -351,8 +351,8 @@ export const getStaticProps = async () => {
   console.log(responseImages.data.data);
 
   const images = {
-    logo: `${responseImages?.data?.data[0].hostprincipal}${responseImages?.data?.data[0].logo}`,
-    banner:`${responseImages?.data?.data[0].hostprincipal}${responseImages?.data?.data[0].banner}`
+    logo: `${responseImages.data.data[0].hostprincipal}${responseImages.data.data[0].logo}`,
+    banner:`${responseImages.data.data[0].hostprincipal}${responseImages.data.data[0].banner}`
   }
 
   console.log(images)
