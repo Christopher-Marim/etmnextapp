@@ -10,20 +10,35 @@
   background-size: cover;
   z-index: -1;
 
+ 
+
   div {
     display: flex;
     position: absolute;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    margin:2rem;
   }
   h1 {
     color: white;
-    font: 400 3.5rem "Roboto", sans-serif;
+    font: 400 3.5rem 'Roboto', sans-serif;
+    
   }
+ 
   h3 {
     color: white;
-    font: 100 1.5rem "Raleway", sans-serif;
+    font: 100 1.5rem 'Raleway', sans-serif;
     margin-top: 10px;
+  }
+
+  @media (max-width: 600px) {
+    h1{
+      font-size: 2rem;
+    }
+    h3{
+      font-size: 0.8rem;
+    }
   }
 }
