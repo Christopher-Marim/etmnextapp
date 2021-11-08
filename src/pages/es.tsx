@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Home } from "../components/Home/home";
-import { Container } from "../styles/pages/Home";
+import  styles  from "../styles/pages/Home.module.scss";
 import { Header } from "../components/Header/header";
 import { About } from "../components/About/about";
 import { ListServices } from "./../components/ListServices/listservices";
@@ -12,6 +12,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { i18n } from "../translate/i18n";
 import api from "../service/api";
+import { GetStaticProps } from "next";
 
 export interface Option {
   id: number;
@@ -123,7 +124,7 @@ export default function Principal({
   }
 
   return (
-    <Container>
+    <div id={styles.home} >
       <Header
         logo={images.logo}
         languages={languages}
@@ -154,11 +155,12 @@ export default function Principal({
         nameComponent={"Contatos"}
       ></Contacts>
       <Footer></Footer>
-    </Container>
+    </div>
   );
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps:GetStaticProps = async ({ params }) => {
+  console.log(`Building slug: ${params?.slug}`)
   const responseCompanyInfos = await api.get(
     `/company?method=getCompanyById&domain=${process.env.REACT_APP_HOST_NAME}`
   );
@@ -176,21 +178,20 @@ export const getStaticProps = async () => {
   const responseServices = await api.get(
     `/services?method=byCompanyLanguageId&companyId=${responseCompanyInfos.data.data[0].id}&languageId=3`
   );
-
-  console.log(responseCompanyInfos.data.data[0]);
-  console.log(responseLanguage.data.data);
-  console.log(responseTextPage.data.data);
-  console.log(responseImages.data.data);
-  console.log(responseServices.data.data);
-
-  const images = {
-    logo: `${responseImages?.data?.data[0].hostprincipal}${responseImages?.data?.data[0].logo}`,
-    banner: `${responseImages?.data?.data[0].hostprincipal}${responseImages?.data?.data[0].banner}`,
+  let images = {
+    logo: ``,
+    banner: ``,
   };
+  if(responseImages?.data.data){
+     images = {
+      logo: `${responseImages?.data?.data[0]?.hostprincipal}${responseImages?.data?.data[0]?.logo}`,
+      banner: `${responseImages?.data?.data[0]?.hostprincipal}${responseImages?.data?.data[0]?.banner}`,
+    };
+  }
 
-  const serviceaux = responseServices.data.data;
+  const serviceaux = responseServices?.data.data;
 
-  const services = serviceaux.map((sv:any) => {
+  const services = serviceaux?.map((sv:any) => {
     const service = {
       id: sv.id,
       title: sv.title,
@@ -208,7 +209,8 @@ export const getStaticProps = async () => {
       languages: responseLanguage.data.data,
       page: responseTextPage.data.data[0],
       images: images,
-      services: services,
+      services: services?services:[],
     },
+    revalidate:10
   };
 };
