@@ -160,7 +160,6 @@ export default function Principal({
 }
 
 export const getStaticProps:GetStaticProps = async ({ params }) => {
-  console.log(`Building slug: ${params?.slug}`)
   const responseCompanyInfos = await api.get(
     `/company?method=getCompanyById&domain=${process.env.REACT_APP_HOST_NAME}`
   );
@@ -201,8 +200,6 @@ export const getStaticProps:GetStaticProps = async ({ params }) => {
     };
     return service;
   });
-  console.log(images);
-
   return {
     props: {
       resposta: responseCompanyInfos.data.data[0],

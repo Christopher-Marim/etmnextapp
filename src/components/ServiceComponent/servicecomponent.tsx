@@ -8,7 +8,7 @@ export interface Service {
   openModal(): void;
 }
 
-export function ServiceComponent({ image, title, message, openModal }: Service) {
+export function ServiceComponent({ image, title, openModal }: Service) {
   return (
     <button onClick={openModal} id={styles.layout1ContainerService}>
       <img src={image} />
