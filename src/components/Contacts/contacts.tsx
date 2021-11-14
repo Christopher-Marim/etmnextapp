@@ -1,5 +1,6 @@
 import styles from "./Contacts.module.scss";
 import { HiOutlineLocationMarker } from "react-icons/hi";
+import {useState} from 'react';
 import { AiOutlineMail } from "react-icons/ai";
 import { BiPhoneCall } from "react-icons/bi";
 
@@ -19,7 +20,8 @@ export function Contacts({
   subText,
   ...rest
 }: Props) {
-  const x = endereco.replace(/\s/g, "+");
+const x = endereco.replace(/\s/g, "+");
+const [name,setName] = useState();
 
   return (
     <>

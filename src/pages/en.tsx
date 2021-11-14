@@ -154,7 +154,7 @@ export default function Principal({
         endereco={resposta.address}
         nameComponent={"Contatos"}
       ></Contacts>
-      <Footer></Footer>
+       <Footer message={resposta.maps}></Footer>
     </div>
   );
 }

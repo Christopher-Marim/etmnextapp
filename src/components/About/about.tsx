@@ -10,7 +10,7 @@ export function About({ aboutRender, nameComponent, ...rest }: Props) {
     <>
       {aboutRender && (
         <div {...rest} className={styles.layout1ContainerAbout} id={`${nameComponent}`}>
-          <h2>{nameComponent}</h2>
+          <h2 id={styles.subTitle}>{nameComponent}</h2>
           <div dangerouslySetInnerHTML={{ __html: aboutRender }}></div>
         </div>
       )}

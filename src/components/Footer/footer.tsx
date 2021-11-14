@@ -1,9 +1,14 @@
 import styles from './Footer.module.scss'
 
-export function Footer() {
-    return(
-        <div id={styles.layout1ContainerFooter}>
+interface propsFooter {
+  message: string
+}
 
-        </div>
-    )
+export function Footer({ message }: propsFooter) {
+  
+  return (
+    <div id={styles.layout1ContainerFooter}>
+      <p dangerouslySetInnerHTML={{ __html: message }}></p>
+    </div>
+  )
 }
